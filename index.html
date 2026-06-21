@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Standard.site Theme Preview</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Meta tags -->
+  <meta name="title" content="Standard.site Theme Preview" />
+  <meta name="description" content="A small web application to preview Standard.site publication themes with live updates and JSON output." />
+  <meta name="author" content="andrés ignacio torres" />
+  <meta property="og:title" content="Standard.site Theme Preview" />
+  <meta property="og:description" content="A small web application to preview Standard.site publication themes with live updates and JSON output." />
+  <meta property="og:url" content="https://themepreview.aitorres.com" />
+  <meta property="og:type" content="website" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Standard.site Theme Preview</h1>
+    <p>
+      Edit the theme colors and watch the publication mock update in real time. The generated lexicon JSON will also update below.
+    </p>
+    <p>
+      Each platform and application may use your theme in different ways. This preview can give you a general idea of how the colors work together.
+    </p>
+    <p>
+      For reference, check out <a href="https://standard.site/docs/lexicons/theme/" target="_blank" rel="noopener">the Standard.site Theme Lexicon documentation</a>.
+    </p>
+  </header>
+
+  <main class="layout">
+    <section class="panel" aria-label="Theme controls">
+      <h2>Theme colors</h2>
+
+      <div class="color-field" data-role="background">
+        <div class="color-field-header">
+          <label>Background</label>
+          <input type="color" class="hex-input" aria-label="Background hex color" />
+        </div>
+        <p>Color used for content background</p>
+        <div class="rgb-inputs">
+          <label>R<input type="number" class="rgb-input" data-channel="r" min="0" max="255" /></label>
+          <label>G<input type="number" class="rgb-input" data-channel="g" min="0" max="255" /></label>
+          <label>B<input type="number" class="rgb-input" data-channel="b" min="0" max="255" /></label>
+        </div>
+      </div>
+
+      <div class="color-field" data-role="foreground">
+        <div class="color-field-header">
+          <label>Foreground</label>
+          <input type="color" class="hex-input" aria-label="Foreground hex color" />
+        </div>
+        <p>Color used for content text</p>
+        <div class="rgb-inputs">
+          <label>R<input type="number" class="rgb-input" data-channel="r" min="0" max="255" /></label>
+          <label>G<input type="number" class="rgb-input" data-channel="g" min="0" max="255" /></label>
+          <label>B<input type="number" class="rgb-input" data-channel="b" min="0" max="255" /></label>
+        </div>
+      </div>
+
+      <div class="color-field" data-role="accent">
+        <div class="color-field-header">
+          <label>Accent</label>
+          <input type="color" class="hex-input" aria-label="Accent hex color" />
+        </div>
+        <p>Color used for links and button backgrounds</p>
+        <div class="rgb-inputs">
+          <label>R<input type="number" class="rgb-input" data-channel="r" min="0" max="255" /></label>
+          <label>G<input type="number" class="rgb-input" data-channel="g" min="0" max="255" /></label>
+          <label>B<input type="number" class="rgb-input" data-channel="b" min="0" max="255" /></label>
+        </div>
+      </div>
+
+      <div class="color-field" data-role="accentForeground">
+        <div class="color-field-header">
+          <label>Accent foreground</label>
+          <input type="color" class="hex-input" aria-label="Accent foreground hex color" />
+        </div>
+        <p>Color used for button text</p>
+        <div class="rgb-inputs">
+          <label>R<input type="number" class="rgb-input" data-channel="r" min="0" max="255" /></label>
+          <label>G<input type="number" class="rgb-input" data-channel="g" min="0" max="255" /></label>
+          <label>B<input type="number" class="rgb-input" data-channel="b" min="0" max="255" /></label>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-label="Live preview">
+      <h2>Preview</h2>
+
+      <div class="preview-stage">
+        <article class="pub-card" id="preview-card">
+          <button class="pub-card-close" type="button" aria-label="Dismiss">&times;</button>
+          <div class="pub-card-image" aria-hidden="true">
+            <svg viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <rect width="320" height="160" fill="color-mix(in srgb, cyan 8%, var(--bg))" />
+              <circle cx="240" cy="48" r="26" fill="gold" />
+              <path d="M0 160 L96 70 L160 130 L220 84 L320 160 Z" fill="color-mix(in srgb, green 22%, transparent)" />
+              <path d="M0 160 L72 104 L150 160 Z" fill="color-mix(in srgb, green 32%, transparent)" />
+            </svg>
+          </div>
+          <h3>Weekly Poké Ball Roundup</h3>
+          <p class="pub-card-desc">
+            If you're threatened by the dark, a supply of Dusk Balls is your biggest ally!
+            Use them in the dark for the best Pokémon-catching performance!
+          </p>
+          <p class="pub-card-meta">
+            <span>June 21, 2026</span>
+            <span class="pub-card-dot" aria-hidden="true"></span>
+            <span>5m</span>
+          </p>
+          <div class="pub-card-footer">
+            <div class="pub-card-author">
+              <span class="pub-card-avatar" aria-hidden="true">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="50" r="48" fill="#fff" stroke="#1f2937" stroke-width="4" />
+                  <path d="M2 50 A48 48 0 0 1 98 50 Z" fill="#e3350d" />
+                  <rect x="2" y="46" width="96" height="8" fill="#1f2937" />
+                  <circle cx="50" cy="50" r="15" fill="#fff" stroke="#1f2937" stroke-width="6" />
+                </svg>
+              </span>
+              <span class="pub-card-author-text">
+                <span class="pub-card-author-name">Pokémon News Press</span>
+                <span class="pub-card-author-sub">pkmnnewspress.com · by @pokemonnewspress.com</span>
+              </span>
+            </div>
+            <button class="pub-card-view-button" type="button">View publication &nearr;</button>
+          </div>
+        </article>
+      </div>
+
+      <h2 class="json-heading">
+        Theme Lexicon JSON
+        <button class="copy-btn" id="copy-btn" type="button">Copy</button>
+      </h2>
+      <pre class="json-output" id="json-output"></pre>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    made with <span class="heart">&hearts;</span> by
+    <a href="https://aitorres.com" title="andrés ignacio torres website">andrés ignacio torres</a>
+    &middot;
+    <a href="https://bsky.app/profile/andresitorresm.com" title="Bluesky profile">bluesky</a>
+    &middot;
+    <a href="https://github.com/andresitorresm/standard-site-theme-preview" title="GitHub repository">github repo</a>
+    &middot;
+    <a href="https://tangled.org/andresitorresm.com/standard-site-theme-preview" title="Tangled repository">tangled repo</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
