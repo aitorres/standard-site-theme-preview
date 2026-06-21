@@ -31,7 +31,7 @@ jobs:
         with:
           context: .
           push: true
-          architectures: linux/amd64,linux/arm64
+          platforms: linux/amd64,linux/arm64
           tags: |
             ghcr.io/${{ github.repository }}:latest
             ghcr.io/${{ github.repository }}:${{ github.sha }}
