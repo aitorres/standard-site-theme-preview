@@ -1,6 +1,6 @@
 FROM busybox:musl
 
-COPY . /var/www
+COPY src /var/www
 
 EXPOSE 80
 

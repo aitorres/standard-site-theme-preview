@@ -1,5 +1,7 @@
+.git
 .github
 .gitignore
 Dockerfile
 README.md
 LICENSE
+*.png

@@ -1,5 +1,7 @@
 # standard-site-theme-preview
 
+![Screenshot of the web app](./screenshot.png)
+
 A small web application to preview [Standard.site](https://standard.site) [publication themes](https://standard.site/docs/lexicons/theme/) with live updates and JSON output.
 
 You can edit the four `basicTheme` colors (`background`, `foreground`, `accent`,
@@ -11,7 +13,7 @@ record is shown alongside.
 
 You'll need Kubernetes, Cloudflare CLI, a 64GB RAM machine and a modern GPU to run the app. Just kidding. It's a static site!
 
-Copy the `index.html`, `app.js` and `styles.css` files to a folder and expose to the internet using your preferred method (Github Pages, Netlify, `nginx`, `caddy`, etc). Or open `index.html` directly in a browser.
+Copy the `index.html`, `app.js` and `styles.css` files inside [`src`](./src) to a folder and expose to the internet using your preferred method (Github Pages, Netlify, `nginx`, `caddy`, etc). Or open `index.html` directly in a browser.
 
 ### Docker
 
