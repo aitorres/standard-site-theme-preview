@@ -85,6 +85,19 @@
           <label>B<input type="number" class="rgb-input" data-channel="b" min="0" max="255" /></label>
         </div>
       </div>
+
+      <div class="contrast-summary" aria-label="Contrast ratios">
+        <label>Contrast ratios</label>
+        <div class="contrast-row">
+          <span class="contrast-label">Content</span>
+          <span class="contrast-value" id="contrast-content"></span>
+        </div>
+        <div class="contrast-row">
+          <span class="contrast-label">Accent</span>
+          <span class="contrast-value" id="contrast-accent"></span>
+        </div>
+        <p>Aim for a contrast ratio of at least 4.5:1 for content text, you can read more about <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html" target="_blank" rel="noopener noreferrer">contrast standards here</a>.</p>
+      </div>
     </section>
 
     <section class="panel" aria-label="Live preview">

@@ -142,6 +142,36 @@ body {
   font-size: 0.9rem;
 }
 
+.contrast-summary {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--ui-border);
+  display: grid;
+  gap: 0.4rem;
+}
+
+.contrast-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.contrast-label {
+  font-size: 0.8rem;
+  color: var(--ui-muted);
+}
+
+.contrast-value {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.contrast-summary p {
+  font-size: 0.75rem;
+  color: var(--ui-muted);
+}
+
 /* Preview column */
 .preview-stage {
   display: flex;

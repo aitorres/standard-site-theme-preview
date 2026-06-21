@@ -29,11 +29,39 @@ function hexToRgb(hex) {
 const card = document.getElementById("preview-card");
 const jsonOutput = document.getElementById("json-output");
 const fields = document.querySelectorAll(".color-field");
+const contrastContent = document.getElementById("contrast-content");
+const contrastAccent = document.getElementById("contrast-accent");
+
+// ref for contrast calculation: https://dev.to/alvaromontoro/building-your-own-color-contrast-checker-4j7o
+const channelLuminance = (n) => {
+  const c = clamp(n) / 255;
+  return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+};
+
+const relativeLuminance = ({ r, g, b }) =>
+  0.2126 * channelLuminance(r) +
+  0.7152 * channelLuminance(g) +
+  0.0722 * channelLuminance(b);
+
+function contrastRatio(a, b) {
+  const la = relativeLuminance(a);
+  const lb = relativeLuminance(b);
+  const lighter = Math.max(la, lb);
+  const darker = Math.min(la, lb);
+  return (lighter + 0.05) / (darker + 0.05);
+}
 
 function applyCard() {
   for (const role in CSS_VAR) {
     card.style.setProperty(CSS_VAR[role], rgbToHex(theme[role]));
   }
+}
+
+function renderContrast() {
+  contrastContent.textContent =
+    contrastRatio(theme.background, theme.foreground).toFixed(2) + ":1";
+  contrastAccent.textContent =
+    contrastRatio(theme.accent, theme.accentForeground).toFixed(2) + ":1";
 }
 
 function renderJson() {
@@ -78,14 +106,19 @@ function syncFieldInputs(field, role) {
   });
 }
 
+function refreshAll() {
+  applyCard();
+  renderJson();
+  renderContrast();
+}
+
 fields.forEach((field) => {
   const role = field.dataset.role;
 
   field.querySelector(".hex-input").addEventListener("input", (e) => {
     theme[role] = hexToRgb(e.target.value);
     syncFieldInputs(field, role);
-    applyCard();
-    renderJson();
+    refreshAll();
   });
 
   field.querySelectorAll(".rgb-input").forEach((input) => {
@@ -94,8 +127,7 @@ fields.forEach((field) => {
       input.value = value;
       theme[role][input.dataset.channel] = value;
       field.querySelector(".hex-input").value = rgbToHex(theme[role]);
-      applyCard();
-      renderJson();
+      refreshAll();
     });
   });
 
@@ -120,5 +152,4 @@ copyBtn.addEventListener("click", async () => {
   )
 });
 
-applyCard();
-renderJson();
+refreshAll();
