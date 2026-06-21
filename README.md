@@ -30,9 +30,13 @@ docker run -d -p 8000:80 --name standard-site-theme-preview ghcr.io/aitorres/sta
 
 Every new commit to the `main` branch will build and publish a new Docker image to the Github Container Registry.
 
+## Repo mirror
+
+This repository is automatically synced one-way from [GitHub (aitorres/standard-site-theme-preview)](https://github.com/aitorres/standard-site-theme-preview) to [tangled](https://tangled.org/andresitorresm.com/standard-site-theme-preview).
+
 ## Contributing
 
-Pull requests are welcome! If you have any suggestions or find any bugs, please open an issue or submit a pull request.
+Pull requests are welcome! If you have any suggestions or find any bugs, please open an issue or submit a pull request to the GitHub repository.
 
 ## License
 
