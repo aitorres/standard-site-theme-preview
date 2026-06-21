@@ -34,7 +34,7 @@ Every new commit to the `main` branch will build and publish a new Docker image 
 
 ## Repo mirror
 
-This repository is automatically synced one-way from [GitHub (aitorres/standard-site-theme-preview)](https://github.com/aitorres/standard-site-theme-preview) to [tangled](https://tangled.org/andresitorresm.com/standard-site-theme-preview).
+This repository is automatically synced one-way from [GitHub (aitorres/standard-site-theme-preview)](https://github.com/aitorres/standard-site-theme-preview) to [tangled (andresitorresm.com/standard-site-theme-preview)](https://tangled.org/andresitorresm.com/standard-site-theme-preview).
 
 ## Contributing
 
