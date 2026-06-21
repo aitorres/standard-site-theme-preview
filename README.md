@@ -9,6 +9,8 @@ You can edit the four `basicTheme` colors (`background`, `foreground`, `accent`,
 preview card update in real time. The matching `site.standard.theme.basic` JSON
 record is shown alongside.
 
+Check it out [here: standardsitethemepreview.aitorres.com](https://standardsitethemepreview.aitorres.com)!
+
 ## Usage
 
 You'll need Kubernetes, Cloudflare CLI, a 64GB RAM machine and a modern GPU to run the app. Just kidding. It's a static site!
@@ -20,7 +22,7 @@ Copy the `index.html`, `app.js` and `styles.css` files inside [`src`](./src) to 
 ...but you can also use Docker to deploy the application! This makes it easy to run the app if you *do* use Kubernetes for your self-hosted needs, like I do.
 
 ```bash
-# Build localy
+# Build locally
 docker build -t standard-site-theme-preview .
 
 # Run
