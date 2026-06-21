@@ -97,14 +97,19 @@ body {
   padding: 0;
   border: none;
   border-radius: 50%;
-  overflow: hidden;
   background: none;
   cursor: pointer;
   box-shadow: 0 0 0 1px var(--ui-border);
 }
 
-.color-field-header input[type="color"]::-webkit-color-swatch-wrapper {
+.color-field-header input[type="color"]::-webkit-color-swatch-wrapper,
+.color-field-header input[type="color"]::-webkit-color-swatch-wrapper:focus {
   padding: 0;
+  border-radius: 0;
+  border: none;
+  border-color: transparent;
+  outline: none;
+  box-shadow: none;
 }
 
 .color-field-header input[type="color"]::-webkit-color-swatch,
