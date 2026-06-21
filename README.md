@@ -25,7 +25,7 @@ docker build -t standard-site-theme-preview .
 docker run -d -p 8000:80 --name standard-site-theme-preview standard-site-theme-preview
 
 # Or use the Docker image published to ghcr.io directly
-docker run -d -p 8000:80 --name standard-site-theme-preview ghcr.io/andresignacio/standard-site-theme-preview:latest
+docker run -d -p 8000:80 --name standard-site-theme-preview ghcr.io/aitorres/standard-site-theme-preview:latest
 ```
 
 Every new commit to the `main` branch will build and publish a new Docker image to the Github Container Registry.
