@@ -86,6 +86,16 @@
         </div>
       </div>
 
+      <div class="image-field">
+        <label>Content image preview</label>
+        <p>Drag and drop an image to use it in the preview card</p>
+        <div class="image-dropzone" id="image-dropzone" tabindex="0" role="button" aria-label="Upload content image">
+          <input type="file" id="image-input" accept="image/*" hidden />
+          <span class="image-dropzone-text">Drop an image here or click to browse</span>
+        </div>
+        <button class="image-remove-btn" id="image-remove-btn" type="button" hidden>Remove image</button>
+      </div>
+
       <div class="contrast-summary" aria-label="Contrast ratios">
         <label>Contrast ratios</label>
         <div class="contrast-row">
@@ -113,6 +123,7 @@
               <path d="M0 160 L96 70 L160 130 L220 84 L320 160 Z" fill="color-mix(in srgb, green 22%, transparent)" />
               <path d="M0 160 L72 104 L150 160 Z" fill="color-mix(in srgb, green 32%, transparent)" />
             </svg>
+            <img class="pub-card-photo" id="pub-card-photo" alt="" hidden />
           </div>
           <h3>Weekly Poké Ball Roundup</h3>
           <p class="pub-card-desc">

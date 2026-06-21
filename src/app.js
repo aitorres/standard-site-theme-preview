@@ -152,4 +152,65 @@ copyBtn.addEventListener("click", async () => {
   )
 });
 
+const dropzone = document.getElementById("image-dropzone");
+const imageInput = document.getElementById("image-input");
+const imageRemoveBtn = document.getElementById("image-remove-btn");
+const cardPhoto = document.getElementById("pub-card-photo");
+const cardSvg = card.querySelector(".pub-card-image svg");
+
+function setCardImage(dataUrl) {
+  cardPhoto.src = dataUrl;
+  cardPhoto.hidden = false;
+  cardSvg.style.display = "none";
+  imageRemoveBtn.hidden = false;
+}
+
+function clearCardImage() {
+  cardPhoto.removeAttribute("src");
+  cardPhoto.hidden = true;
+  cardSvg.style.display = "";
+  imageRemoveBtn.hidden = true;
+  imageInput.value = "";
+}
+
+function loadImageFile(file) {
+  if (!file || !file.type.startsWith("image/")) return;
+  const reader = new FileReader();
+  reader.onload = () => setCardImage(reader.result);
+  reader.readAsDataURL(file);
+}
+
+dropzone.addEventListener("click", () => imageInput.click());
+
+dropzone.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    imageInput.click();
+  }
+});
+
+imageInput.addEventListener("change", () => {
+  loadImageFile(imageInput.files[0]);
+});
+
+["dragenter", "dragover"].forEach((type) => {
+  dropzone.addEventListener(type, (e) => {
+    e.preventDefault();
+    dropzone.classList.add("is-dragover");
+  });
+});
+
+["dragleave", "dragend", "drop"].forEach((type) => {
+  dropzone.addEventListener(type, () => {
+    dropzone.classList.remove("is-dragover");
+  });
+});
+
+dropzone.addEventListener("drop", (e) => {
+  e.preventDefault();
+  loadImageFile(e.dataTransfer.files[0]);
+});
+
+imageRemoveBtn.addEventListener("click", clearCardImage);
+
 refreshAll();
